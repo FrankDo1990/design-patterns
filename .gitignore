@@ -13,3 +13,5 @@ hs_err_pid*
 # the idea ide files
 .idea/*
 *.iml
+#maven generators
+target/*
