@@ -1,4 +1,4 @@
-package com.study.designpatterns.strategy;
+package com.study.strategy;
 
 /**
  * Created by Frank on 16/11/6.

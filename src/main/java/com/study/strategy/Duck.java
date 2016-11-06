@@ -1,6 +1,4 @@
-package com.study.designpatterns.strategy;
-
-/**
+package com.study.strategy; /**
  * Created by Frank on 16/11/6.
  */
 
@@ -10,7 +8,7 @@ package com.study.designpatterns.strategy;
 public abstract class Duck {
     //面向接口设计,将可变对象(FlyBehavior, Quack)独立出去
     FlyBehavior flyBehavior;
-    Quack quack;
+    QuackBehavior quackBehavior;
 
     //根据子类中FlyBeHavior的具体实现进行调用
     public void performFlyBehavior(){
@@ -18,8 +16,17 @@ public abstract class Duck {
     }
     //根据子类的quack的具体实现调用
     public void performQuack(){
-        quack.quackBehavior();
+        quackBehavior.quackBehavior();
     }
-    //swim function
-    public void swim(){};
+    public void swim(){
+        System.out.println("I'm swimming !");
+    };
+
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
+    }
 }
