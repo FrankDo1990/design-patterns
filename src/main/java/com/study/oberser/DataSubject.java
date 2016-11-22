@@ -1,4 +1,4 @@
-package com.study.oberserpattern;
+package com.study.oberser;
 
 import com.google.common.collect.Lists;
 
@@ -27,7 +27,7 @@ public class DataSubject implements Subject{
 
     @Override
     public void setDataChanged(boolean changed) {
-        changed = changed;
+        this.changed = changed;
     }
 
     @Override
@@ -36,8 +36,8 @@ public class DataSubject implements Subject{
            for (Observer o : observers){
                o.update(this, data);
            }
+           setDataChanged(false);
        }
-        setDataChanged(false);
     }
 
     public String getData() {
@@ -46,5 +46,15 @@ public class DataSubject implements Subject{
 
     public void setData(String data) {
         this.data = data;
+        setDataChanged(true);
+        notifyObserver();
+    }
+
+    public List<Observer> getObservers() {
+        return observers;
+    }
+
+    public void setObservers(List<Observer> observers) {
+        this.observers = observers;
     }
 }
